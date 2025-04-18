@@ -1,6 +1,7 @@
-package es.vqz.modelo;
+package es.vqz.metodos;
 
 import java.util.*;
+import es.vqz.modelo.*;
 
 public class Dijkstra {
 	

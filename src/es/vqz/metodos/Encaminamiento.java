@@ -1,4 +1,4 @@
-package es.vqz.modelo;
+package es.vqz.metodos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+
+import es.vqz.modelo.*;
 
 public class Encaminamiento {
 	Map<Integer, Integer> predecesores;
@@ -34,7 +37,7 @@ private void recorrer(int nodo, int distancia) {
 	List<Enlace> hijos = Grafo.getHijos(nodo);
 	
 	for (Enlace e : hijos) {
-		recorrer(e.Destino(), distancia + e.peso);
+		recorrer(e.Destino(), distancia + e.Peso());
 	}
 	
 }
