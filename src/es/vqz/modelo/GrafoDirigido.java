@@ -33,6 +33,12 @@ public class GrafoDirigido {
 		this(new ArrayList<Enlace>());
 	}
 	
+	public boolean validar(int nodo) {
+		if (nodo < 0 || !nodos.contains(nodo))
+			return false;
+		return true;
+	}
+	
 	public int nNodos() {
 		return nNodos;
 	}
@@ -100,6 +106,9 @@ public class GrafoDirigido {
 		G.añadirEnlace(e1);
 		G.añadirEnlace(e2);
 		System.out.println(G.nodos);
+		System.out.println(G.getHijos(1));
+		System.out.println(G.getEntradasA(1));
+		System.out.println(G.getSalidasDesde(1));
 		
 	}
 	
