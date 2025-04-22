@@ -1,4 +1,4 @@
-package es.vqz.metodos;
+package es.vzq.modelos.Dirigidos.EnlaceGrafoDirigido;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,19 +8,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import es.vqz.modelo.Enlace;
-import es.vqz.modelo.GrafoDirigido;
+import es.vzq.modelos.Dirigidos.*;
 
-public class MetodosGrafos {
+public class Metodos {
 	Map<Integer, List<Integer>> predecesores; // nodo y lista de predecesores
 	Set<Integer> visitados;
-	Set<Enlace> pendientes;
+	Set<EnlaceDirigido> pendientes;
 	Set<Integer> nodos;
 	GrafoDirigido Grafo;
 	Map<Integer, Integer> distancias;
 	int origen;
 
-	public MetodosGrafos(GrafoDirigido G, int nodo) {
+	public Metodos(GrafoDirigido G, int nodo) {
 		origen = nodo;
 		predecesores = new HashMap<>();
 		visitados = new HashSet<>();
@@ -33,8 +32,8 @@ public class MetodosGrafos {
 	}
 
 	private void recorrer(int nodo, int distancia, Map<Integer, Integer> distancias) {
-		List<Enlace> hijos = Grafo.getHijos(nodo);
-		for (Enlace e : hijos) {
+		List<EnlaceDirigido> hijos = Grafo.getHijos(nodo);
+		for (EnlaceDirigido e : hijos) {
 			int destino = e.Destino();
 			int nuevaDistancia = distancia + e.Peso();
 
@@ -110,16 +109,16 @@ public class MetodosGrafos {
 
 	public static void main(String args[]) throws Exception {
 		GrafoDirigido G = new GrafoDirigido();
-		Enlace e1 = new Enlace(0, 1);
-		Enlace e2 = new Enlace(1, 2);
-		Enlace e3 = new Enlace(2, 3);
-		Enlace e4 = new Enlace(0, 4);
+		EnlaceDirigido e1 = new EnlaceDirigido(0, 1);
+		EnlaceDirigido e2 = new EnlaceDirigido(1, 2);
+		EnlaceDirigido e3 = new EnlaceDirigido(2, 3);
+		EnlaceDirigido e4 = new EnlaceDirigido(0, 4);
 		G.añadirEnlace(e1);
 		G.añadirEnlace(e2);
 		G.añadirEnlace(e3);
 		G.añadirEnlace(e4);
 
-		MetodosGrafos mg = new MetodosGrafos(G, 0);
+		Metodos mg = new Metodos(G, 0);
 		System.out.println(G);
 		System.out.println(mg.distanciaA(4));
 		System.out.println(mg.caminoHacia(4));
